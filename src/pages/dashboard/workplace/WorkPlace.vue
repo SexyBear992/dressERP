@@ -53,6 +53,7 @@
               <a>操作四</a>
               <a>操作五</a>
               <a>操作六</a>
+              <a>操作七</a>
               <a-button size="small" type="primary" ghost icon="plus">{{$t('add')}}</a-button>
             </div>
           </a-card>
