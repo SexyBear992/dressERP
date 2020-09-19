@@ -4,7 +4,7 @@ module.exports = {
     color: '#13c2c2',
     mode: 'dark',
   },
-  asyncRoutes: true,       //异步加载路由，true:开启，false:不开启
+  // asyncRoutes: true,       //异步加载路由，true:开启，false:不开启
   multiPage: true,
   animate: {
     name: 'lightSpeed',

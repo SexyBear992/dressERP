@@ -207,6 +207,21 @@ const options = {
           ]
         },
         {
+          path: 'csPage',
+          name: '测试',
+          meta: {
+            icon: 'loading'
+          },
+          component: PageView,
+          children: [
+            {
+              path: 'cs',
+              name: '测试页',
+              component: () => import('@/pages/cs/cs')
+            }
+          ]
+        },
+        {
           name: '验权表单',
           path: 'auth/form',
           meta: {

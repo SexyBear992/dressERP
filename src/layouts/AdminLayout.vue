@@ -20,7 +20,7 @@
         </div>
       </a-layout-content>
       <a-layout-footer style="padding: 0px">
-        <page-footer :link-list="footerLinks" :copyright="copyright" />
+        <!-- <page-footer :link-list="footerLinks" :copyright="copyright" /> -->
       </a-layout-footer>
     </a-layout>
   </a-layout>
@@ -28,7 +28,7 @@
 
 <script>
 import AdminHeader from './header/AdminHeader'
-import PageFooter from './footer/PageFooter'
+// import PageFooter from './footer/PageFooter'
 import Drawer from '../components/tool/Drawer'
 import SideMenu from '../components/menu/SideMenu'
 import Setting from '../components/setting/Setting'
@@ -38,7 +38,8 @@ const minHeight = window.innerHeight - 64 - 24 - 122
 
 export default {
   name: 'AdminLayout',
-  components: {Setting, SideMenu, Drawer, PageFooter, AdminHeader},
+  // PageFooter
+  components: {Setting, SideMenu, Drawer, AdminHeader},
   data () {
     return {
       minHeight: minHeight,

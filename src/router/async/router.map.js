@@ -145,6 +145,15 @@ const routerMap = {
     name: '任务卡片',
     component: () => import('@/pages/components/TaskCard')
   },
+  csPage: {
+    name: '测试',
+    icon: 'loading',
+    component: view.page
+  },
+  cs: {
+    name: '测试页',
+    component: () => import('@/pages/cs/cs')
+  },
   palette: {
     name: '颜色复选框',
     component: () => import('@/pages/components/Palette')

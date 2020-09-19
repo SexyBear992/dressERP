@@ -10,7 +10,6 @@ const resp401 = {
    * @returns {*}
    */
   onFulfilled(response, options) {
-    console.log('请求响应')
     const {message} = options
     if (response.status === 401) {
       message.error('无此接口权限')
@@ -24,7 +23,6 @@ const resp401 = {
    * @returns {Promise<never>}
    */
   onRejected(error, options) {
-    console.log('请求响应报错')
     const {message} = options
     message.error(error.message)
     return Promise.reject(error)

@@ -10,7 +10,7 @@ axios.defaults.timeout = 5000
 // axios.defaults.xsrfCookieName= xsrfHeaderName
 // axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
 // axios.defaults.headers.get['Content-Type'] = 'application/json;charset=UTF-8'
-
+console.log('axios',axios.defaults)
 
 // http method
 const METHOD = {
@@ -73,7 +73,6 @@ function loadInterceptors(interceptors, options) {
   const {request, response} = interceptors
   // 加载请求拦截器
   request.forEach(item => {
-    console.log('加载请求拦截器')
     let {onFulfilled, onRejected} = item
     if (!onFulfilled || typeof onFulfilled !== 'function') {
       onFulfilled = config => config
@@ -88,7 +87,6 @@ function loadInterceptors(interceptors, options) {
   })
   // 加载响应拦截器
   response.forEach(item => {
-    console.log('加载响应拦截器')
     let {onFulfilled, onRejected} = item
     if (!onFulfilled || typeof onFulfilled !== 'function') {
       onFulfilled = response => response

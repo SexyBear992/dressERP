@@ -75,9 +75,10 @@
 
 <script>
 import CommonLayout from '@/layouts/CommonLayout'
-import {login, getRoutesConfig} from '@/api/user'
+// getRoutesConfig
+import {login} from '@/api/user'
 import {setTicket} from '@/utils/request'
-import {loadRoutes} from '@/utils/routerUtil'
+// import {loadRoutes} from '@/utils/routerUtil'
 import {mapMutations} from 'vuex'
 
 export default {
@@ -107,18 +108,7 @@ export default {
             password: this.form.getFieldValue('password')
           }
           login(params).then(res=>{
-            this.logging = false
-            if (res.data.code === 0) {
-              setTicket(res.data.data.token)
-              getRoutesConfig().then(result => {
-                const routesConfig = result.data.data
-                loadRoutes({router: this.$router, store: this.$store, i18n: this.$i18n}, routesConfig)
-                this.$message.success(res.data.message, 3)
-                this.$router.push('/dashboard/workplace')
-              })
-            } else {
-              this.error = res.data.message
-            }
+            this.afterLogin(res)
           })
         }
       })
@@ -131,14 +121,14 @@ export default {
         this.setUser(user)
         this.setPermissions(permissions)
         this.setRoles(roles)
-        // setAuthorization({token: loginRes.data.token, expireAt: new Date(loginRes.data.expireAt)})
+        setTicket(loginRes.data.token)
         // 获取路由配置
-        getRoutesConfig().then(result => {
-          const routesConfig = result.data.data
-          loadRoutes({router: this.$router, store: this.$store, i18n: this.$i18n}, routesConfig)
+        // getRoutesConfig().then(res => {
+          // const routesConfig = res.data.data
+          // loadRoutes({router: this.$router, store: this.$store, i18n: this.$i18n}, routesConfig)
           this.$router.push('/dashboard/workplace')
           this.$message.success(loginRes.message, 3)
-        })
+        // })
       } else {
         this.error = loginRes.message
       }
